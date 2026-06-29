@@ -1,0 +1,14 @@
+# Kunci Rahasia GCP (WAJIB DISEMBUNYIKAN)
+kunci.json
+
+# Folder cache python lokal
+__pycache__/
+*.pyc
+
+# Virtual Environment lokal (kalau pakai)
+venv/
+.venv/
+env/
+
+# Konfigurasi rahasia streamlit lokal
+.streamlit/secrets.toml
