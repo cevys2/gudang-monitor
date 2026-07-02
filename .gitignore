@@ -1,5 +1,5 @@
-# .streamlit/   <-- Bikin jadi begini (kasih pagar biar nonaktif)
-# *.toml        <-- Ini juga
+.streamlit/
+*.toml
 *.json
 *.csv
 *.xlsx
