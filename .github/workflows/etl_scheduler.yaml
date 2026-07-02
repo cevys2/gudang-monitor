@@ -22,12 +22,5 @@ jobs:
       - name: 📦 Install Kurir (Dependencies)
         run: pip install -r requirements.txt
 
-      - name: 🔐 Bikin Brankas Rahasia (secrets.toml)
-        env:
-          KUNCI_RAHASIA: ${{ secrets.STREAMLIT_SECRETS }}
-        run: |
-          mkdir -p .streamlit
-          echo "$KUNCI_RAHASIA" > .streamlit/secrets.toml
-
       - name: 🚀 Eksekusi Mesin ETL
         run: python etl_gudang.py
