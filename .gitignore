@@ -1,14 +1,8 @@
-# Kunci Rahasia GCP (WAJIB DISEMBUNYIKAN)
-kunci.json
-
-# Folder cache python lokal
+# .streamlit/   <-- Bikin jadi begini (kasih pagar biar nonaktif)
+# *.toml        <-- Ini juga
+*.json
+*.csv
+*.xlsx
+*.xls
 __pycache__/
 *.pyc
-
-# Virtual Environment lokal (kalau pakai)
-venv/
-.venv/
-env/
-
-# Konfigurasi rahasia streamlit lokal
-.streamlit/secrets.toml
