@@ -1,0 +1,32 @@
+name: Auto ETL Gudang (15 Menit)
+
+on:
+  schedule:
+    # Format cron: menit, jam, tanggal, bulan, hari
+    # "*/15 * * * *" artinya jalan setiap 15 menit
+    - cron: "*/15 * * * *" 
+  workflow_dispatch: # Ini biar lu tetep punya tombol manual buat ngetes di web GitHub
+
+jobs:
+  run-etl:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Tarik Kode dari Repo
+        uses: actions/checkout@v3
+
+      - name: 🐍 Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11' # Standar stabil
+
+      - name: 📦 Install Kurir (Dependencies)
+        run: pip install -r requirements.txt
+
+      - name: 🔐 Bikin Brankas Rahasia (secrets.toml)
+        # Langkah ini bikin folder .streamlit dan nyuntikkin rahasia dari GitHub
+        run: |
+          mkdir -p .streamlit
+          echo "${{ secrets.STREAMLIT_SECRETS }}" > .streamlit/secrets.toml
+
+      - name: 🚀 Eksekusi Mesin ETL
+        run: python etl_gudang.py
