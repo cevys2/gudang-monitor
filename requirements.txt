@@ -1,6 +1,5 @@
 streamlit
 pandas
-google-genai
-gspread
-google-auth
 plotly
+sqlalchemy
+psycopg2-binary
