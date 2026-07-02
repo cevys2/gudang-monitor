@@ -23,10 +23,11 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: 🔐 Bikin Brankas Rahasia (secrets.toml)
-        # Langkah ini bikin folder .streamlit dan nyuntikkin rahasia dari GitHub
         run: |
           mkdir -p .streamlit
-          echo "${{ secrets.STREAMLIT_SECRETS }}" > .streamlit/secrets.toml
+          cat << 'EOF' > .streamlit/secrets.toml
+          ${{ secrets.STREAMLIT_SECRETS }}
+          EOF
 
       - name: 🚀 Eksekusi Mesin ETL
         run: python etl_gudang.py
